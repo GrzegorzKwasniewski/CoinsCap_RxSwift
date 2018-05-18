@@ -10,7 +10,7 @@ import RxSwift
 
 class ViewController: UITableViewController {
     
-    fileprivate let events = Variable<[Coin]>([])
+    fileprivate let coins = Variable<[Coin]>([])
     fileprivate let bag = DisposeBag()
 
     override func viewDidLoad() {
@@ -37,3 +37,23 @@ class ViewController: UITableViewController {
     }
 }
 
+extension ViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return coins.value.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let coin = coins.value[indexPath.row]
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {
+            return UITableViewCell()
+        }
+        
+        cell.textLabel?.text = coin.coinName
+        cell.detailTextLabel?.text = coin.coinPrice
+
+        return cell
+    }
+}
