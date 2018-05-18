@@ -36,6 +36,18 @@ class ViewController: UITableViewController {
         
     }
     
+    func getCurrentCoinsCap(fromURL url: String) {
+        
+        // 1 krok - czy form jest tu potrzebne - sprawdzić inne możlwiości
+          let response = Observable.from([url])
+            .map { url -> URL in // 2 krok
+                return URL(string: url)!
+            }.map { url -> URLRequest in // 3 krok
+                return URLRequest(url: url)
+        }
+        
+    }
+    
     @objc func refresh() {
         
     }
