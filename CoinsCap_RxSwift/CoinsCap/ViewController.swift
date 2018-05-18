@@ -12,6 +12,8 @@ class ViewController: UITableViewController {
     
     fileprivate let coins = Variable<[Coin]>([])
     fileprivate let bag = DisposeBag()
+    
+    private let coinsCapURL = "https://api.coinmarketcap.com/v1/ticker/"
 
     override func viewDidLoad() {
         super.viewDidLoad()
