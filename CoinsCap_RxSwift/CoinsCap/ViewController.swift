@@ -48,9 +48,9 @@ class ViewController: UITableViewController {
                 return URL(string: url)!
             }.map { url -> URLRequest in // 3 krok
                 return URLRequest(url: url)
-            }.flatMap { request -> Observable<(HTTPURLResponse, Data)> in // 4 krok
+            }.flatMap { request -> Observable<(response: HTTPURLResponse, data: Data)> in // 4 krok
                 return URLSession.shared.rx.response(request: request) // wykonanie tej funkcji oznacza odebranie danych z serwera
-        }
+        }.share(replay: 1)
         
     }
     
