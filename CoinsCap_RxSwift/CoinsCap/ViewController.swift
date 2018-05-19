@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class ViewController: UITableViewController {
     
@@ -38,12 +39,17 @@ class ViewController: UITableViewController {
     
     func getCurrentCoinsCap(fromURL url: String) {
         
-        // 1 krok - czy form jest tu potrzebne - sprawdzić inne możlwiości
+        // 1 krok - czy "from" jest tu potrzebne - sprawdzić inne możlwiości
+        // Jeżeli to jest kolekcja, to czy w przypadku większej ilości elementów
+        // dla każdego zostanie wykonany ten sam zestaw operacji?
+        
           let response = Observable.from([url])
             .map { url -> URL in // 2 krok
                 return URL(string: url)!
             }.map { url -> URLRequest in // 3 krok
                 return URLRequest(url: url)
+            }.flatMap { request -> Observable<(HTTPURLResponse, Data)> in // 4 krok
+                return URLSession.shared.rx.response(request: request) // wykonanie tej funkcji oznacza odebranie danych z serwera
         }
         
     }
