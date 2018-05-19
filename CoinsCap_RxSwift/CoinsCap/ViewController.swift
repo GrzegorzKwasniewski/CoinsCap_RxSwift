@@ -52,6 +52,15 @@ class ViewController: UITableViewController {
                 return URLSession.shared.rx.response(request: request) // wykonanie tej funkcji oznacza odebranie danych z serwera
         }.share(replay: 1)
         
+        filterResponse(response)
+        
+    }
+    
+    func filterResponse(_ response: Observable<(response: HTTPURLResponse, data: Data)>) {
+        response
+            .filter { response, _ in
+                return 200..<300 ~= response.statusCode
+        }
     }
     
     @objc func refresh() {
