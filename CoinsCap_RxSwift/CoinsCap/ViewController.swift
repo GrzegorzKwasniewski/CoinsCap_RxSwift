@@ -15,14 +15,17 @@ class ViewController: UITableViewController {
     fileprivate let coins = Variable<[Coin]>([])
     fileprivate let bag = DisposeBag()
     
-    private let coinsCapURL = "https://api.coinmarketcap.com/v1/ticker/"
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Coins Market Cap"
+        
+        tableView.dataSource = self
+        tableView.delegate = self
 
         setupRefreshControll()
+        
+        getCurrentCoinsCap(fromURL: "https://api.coinmarketcap.com/v1/ticker/")
 
     }
     
@@ -68,7 +71,10 @@ class ViewController: UITableViewController {
                     let json = try JSON(data: data)
                     
                     return json
-                } catch (let _) {
+                } catch (let error) {
+                    
+                    print("Error \(error.localizedDescription)")
+                    
                     return JSON()
                 }
                 
@@ -84,13 +90,16 @@ class ViewController: UITableViewController {
                     return [Coin(coinData: JSON())]
                 }
             }.subscribe(onNext: { [weak self] coins in
-                self?.updateUIWithCoins(coins: coins)
+                self?.updateUIWithCoins(coinsCollection: coins)
             })
             .disposed(by: bag)
     }
     
-    func updateUIWithCoins(coins: [Coin]) {
+    func updateUIWithCoins(coinsCollection: [Coin]) {
+
+        self.coins.value = coinsCollection
         
+        //tableView.reloadData()
     }
     
     @objc func refresh() {
@@ -105,10 +114,10 @@ extension ViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         let coin = coins.value[indexPath.row]
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell") else {
             return UITableViewCell()
         }
         
