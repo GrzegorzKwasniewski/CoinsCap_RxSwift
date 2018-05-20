@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SwiftyJSON
 
 class ViewController: UITableViewController {
     
@@ -52,6 +53,7 @@ class ViewController: UITableViewController {
                 return URLSession.shared.rx.response(request: request) // wykonanie tej funkcji oznacza odebranie danych z serwera
         }.share(replay: 1)
         
+        // operacja wykonywana już po odebraniu danych z serwera
         filterResponse(response)
         
     }
@@ -59,8 +61,36 @@ class ViewController: UITableViewController {
     func filterResponse(_ response: Observable<(response: HTTPURLResponse, data: Data)>) {
         response
             .filter { response, _ in
-                return 200..<300 ~= response.statusCode
-        }
+                return 200..<300 ~= response.statusCode // operattora używamy z "rangem" - jak range jest po lewej to sprawdzane jest, czy wartość po prawej w nim się znajduje
+            }.map { _, data -> JSON in
+
+                do {
+                    let json = try JSON(data: data)
+                    
+                    return json
+                } catch (let _) {
+                    return JSON()
+                }
+                
+            }.filter { objects in
+                return objects.count > 0
+            }.map { objects -> [Coin] in
+                
+                if let dataObjects = objects[0].array {
+                    return dataObjects.map {
+                        Coin(coinData: $0)
+                    }
+                } else {
+                    return [Coin(coinData: JSON())]
+                }
+            }.subscribe(onNext: { [weak self] coins in
+                self?.updateUIWithCoins(coins: coins)
+            })
+            .disposed(by: bag)
+    }
+    
+    func updateUIWithCoins(coins: [Coin]) {
+        
     }
     
     @objc func refresh() {

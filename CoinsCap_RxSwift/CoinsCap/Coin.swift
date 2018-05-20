@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-struct Coin {
+struct Coin: Decodable {
     
     private(set) var coinName: String
     private(set) var coinPrice: String
