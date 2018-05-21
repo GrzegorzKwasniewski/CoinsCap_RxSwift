@@ -37,7 +37,7 @@ class ViewController: UITableViewController {
         refreshControl.backgroundColor = UIColor(white: 0.98, alpha: 1.0)
         refreshControl.tintColor = UIColor.darkGray
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshCoins), for: .valueChanged)
         
     }
     
@@ -102,10 +102,12 @@ class ViewController: UITableViewController {
         self.coins.value = coinsCollection
         
         tableView.reloadData()
+        
+        refreshControl?.endRefreshing()
     }
     
-    @objc func refresh() {
-        
+    @objc func refreshCoins() {
+        getCurrentCoinsCap(fromURL: "https://api.coinmarketcap.com/v1/ticker/")
     }
 }
 
