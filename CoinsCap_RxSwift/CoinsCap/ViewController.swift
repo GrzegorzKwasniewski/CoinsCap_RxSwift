@@ -53,6 +53,9 @@ class ViewController: UITableViewController {
             }.map { url -> URLRequest in // 3 krok
                 return URLRequest(url: url)
             }.flatMap { request -> Observable<(response: HTTPURLResponse, data: Data)> in // 4 krok
+                
+                print("main: \(Thread.isMainThread)")
+                
                 return URLSession.shared.rx.response(request: request) // wykonanie tej funkcji oznacza odebranie danych z serwera
         }.share(replay: 1)
         
@@ -65,6 +68,9 @@ class ViewController: UITableViewController {
     func filterSuccesResponse(_ response: Observable<(response: HTTPURLResponse, data: Data)>) {
         response
             .filter { response, _ in
+                
+                print("main: \(Thread.isMainThread)")
+
                 return 200..<300 ~= response.statusCode // operattora używamy z "rangem" - jak range jest po lewej to sprawdzane jest, czy wartość po prawej w nim się znajduje
             }.map { _, data -> JSON in
 
@@ -82,8 +88,6 @@ class ViewController: UITableViewController {
             }.filter { objects in
                 return objects.count > 0
             }.map { objects -> [Coin] in
-                
-                print(objects)
                 
                 if let dataObjects = objects.array {
                     return dataObjects.map {
@@ -104,6 +108,9 @@ class ViewController: UITableViewController {
             .filter {response, _ in
                 return 400..<600 ~= response.statusCode
             }.flatMap { response, _ -> Observable<Int> in
+                
+                print("main: \(Thread.isMainThread)")
+
                 return Observable.just(response.statusCode)
             }.subscribe(onNext: { [weak self] statusCode in
                 // pokaż ekran z errorem
@@ -116,9 +123,9 @@ class ViewController: UITableViewController {
 
         self.coins.value = coinsCollection
         
-        tableView.reloadData()
+        //tableView.reloadData()
         
-        refreshControl?.endRefreshing()
+        //refreshControl?.endRefreshing()
     }
     
     @objc func refreshCoins() {
