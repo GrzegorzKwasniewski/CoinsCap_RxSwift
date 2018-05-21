@@ -123,13 +123,17 @@ class ViewController: UITableViewController {
 
         self.coins.value = coinsCollection
         
-        //tableView.reloadData()
-        
-        //refreshControl?.endRefreshing()
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+            self?.refreshControl?.endRefreshing()
+        }
     }
     
     @objc func refreshCoins() {
-        getCurrentCoinsCap(fromURL: "https://api.coinmarketcap.com/v1/ticker/")
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.getCurrentCoinsCap(fromURL: "https://api.coinmarketcap.com/v1/ticker/")
+        }
     }
 }
 
