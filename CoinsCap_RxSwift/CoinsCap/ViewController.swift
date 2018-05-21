@@ -102,8 +102,14 @@ class ViewController: UITableViewController {
         
         response
             .filter {response, _ in
-                return 200..<400 ~= response.statusCode
-        }
+                return 400..<600 ~= response.statusCode
+            }.flatMap { response, _ -> Observable<Int> in
+                return Observable.just(response.statusCode)
+            }.subscribe(onNext: { [weak self] statusCode in
+                // pokaż ekran z errorem
+            })
+            .disposed(by: bag)
+        
     }
     
     func updateUIWithCoins(coinsCollection: [Coin]) {
