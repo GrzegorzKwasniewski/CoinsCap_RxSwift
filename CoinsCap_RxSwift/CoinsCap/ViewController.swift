@@ -82,7 +82,9 @@ class ViewController: UITableViewController {
                 return objects.count > 0
             }.map { objects -> [Coin] in
                 
-                if let dataObjects = objects[0].array {
+                print(objects)
+                
+                if let dataObjects = objects.array {
                     return dataObjects.map {
                         Coin(coinData: $0)
                     }
@@ -99,7 +101,7 @@ class ViewController: UITableViewController {
 
         self.coins.value = coinsCollection
         
-        //tableView.reloadData()
+        tableView.reloadData()
     }
     
     @objc func refresh() {
