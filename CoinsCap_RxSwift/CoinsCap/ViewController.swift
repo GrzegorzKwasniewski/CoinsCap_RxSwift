@@ -57,11 +57,12 @@ class ViewController: UITableViewController {
         }.share(replay: 1)
         
         // operacja wykonywana już po odebraniu danych z serwera
-        filterResponse(response)
+        filterSuccesResponse(response)
         
+        filterErrorResponse(response)
     }
     
-    func filterResponse(_ response: Observable<(response: HTTPURLResponse, data: Data)>) {
+    func filterSuccesResponse(_ response: Observable<(response: HTTPURLResponse, data: Data)>) {
         response
             .filter { response, _ in
                 return 200..<300 ~= response.statusCode // operattora używamy z "rangem" - jak range jest po lewej to sprawdzane jest, czy wartość po prawej w nim się znajduje
@@ -95,6 +96,14 @@ class ViewController: UITableViewController {
                 self?.updateUIWithCoins(coinsCollection: coins)
             })
             .disposed(by: bag)
+    }
+    
+    func filterErrorResponse(_ response: Observable<(response: HTTPURLResponse, data: Data)>) {
+        
+        response
+            .filter {response, _ in
+                return 200..<400 ~= response.statusCode
+        }
     }
     
     func updateUIWithCoins(coinsCollection: [Coin]) {
