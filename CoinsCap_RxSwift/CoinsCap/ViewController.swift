@@ -178,4 +178,14 @@ extension ViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let coin = coins.value[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let coinsDetailsVC = storyboard.instantiateViewController(withIdentifier: "CoinsDetailsVC") as! CoinsDetailsVC
+        coinsDetailsVC.singleCoin = coin
+        navigationController?.pushViewController(coinsDetailsVC, animated: true)
+        
+    }
 }
