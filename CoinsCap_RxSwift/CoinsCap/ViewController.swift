@@ -34,8 +34,8 @@ class ViewController: UITableViewController {
         self.refreshControl = UIRefreshControl()
         let refreshControl = self.refreshControl!
         
-        refreshControl.backgroundColor = UIColor(white: 0.98, alpha: 1.0)
-        refreshControl.tintColor = UIColor.darkGray
+        refreshControl.backgroundColor = .white
+        refreshControl.tintColor = .blue
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(refreshCoins), for: .valueChanged)
         
@@ -113,7 +113,7 @@ class ViewController: UITableViewController {
 
                 return Observable.just(response.statusCode)
             }.subscribe(onNext: { [weak self] statusCode in
-                // pokaż ekran z errorem
+                self?.showAlert("Something is wrong", description: "\(statusCode)")
             })
             .disposed(by: bag)
         
