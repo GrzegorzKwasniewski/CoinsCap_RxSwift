@@ -20,4 +20,7 @@ class CoinsDetailsVC: UIViewController {
         coinValue.text = singleCoin.coinPrice
     }
     
+    @IBAction func removeCoinFromList(_ sender: Any) {
+        
+    }
 }
