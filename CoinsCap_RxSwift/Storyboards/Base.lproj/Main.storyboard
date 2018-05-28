@@ -62,9 +62,35 @@
                     <view key="view" contentMode="scaleToFill" id="G12-9h-DaA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coin name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bq-2i-bzZ">
+                                <rect key="frame" x="131" y="60" width="112" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="coin value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANV-CA-t5z">
+                                <rect key="frame" x="149" y="137" width="77" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="alI-vC-bGR" firstAttribute="trailing" secondItem="6bq-2i-bzZ" secondAttribute="trailing" constant="132" id="5eC-LA-sn3"/>
+                            <constraint firstItem="6bq-2i-bzZ" firstAttribute="leading" secondItem="alI-vC-bGR" secondAttribute="leading" constant="131" id="Ca2-t8-JN7"/>
+                            <constraint firstItem="6bq-2i-bzZ" firstAttribute="top" secondItem="alI-vC-bGR" secondAttribute="top" constant="40" id="HmH-A4-p5b"/>
+                            <constraint firstItem="alI-vC-bGR" firstAttribute="trailing" secondItem="ANV-CA-t5z" secondAttribute="trailing" constant="149" id="YNe-f6-Bhf"/>
+                            <constraint firstItem="ANV-CA-t5z" firstAttribute="top" secondItem="6bq-2i-bzZ" secondAttribute="bottom" constant="48" id="e5I-Or-tYm"/>
+                            <constraint firstItem="ANV-CA-t5z" firstAttribute="leading" secondItem="alI-vC-bGR" secondAttribute="leading" constant="149" id="qgX-eS-HUS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="alI-vC-bGR"/>
                     </view>
+                    <connections>
+                        <outlet property="coinName" destination="6bq-2i-bzZ" id="cs2-dk-V9j"/>
+                        <outlet property="coinValue" destination="ANV-CA-t5z" id="W0B-rj-jJy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXL-87-6pf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
