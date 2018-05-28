@@ -135,6 +135,28 @@ class ViewController: UITableViewController {
             strongSelf.getCurrentCoinsCap(fromURL: "https://api.coinmarketcap.com/v1/ticker/")
         }
     }
+    
+    func showAlert(_ title: String, description: String) -> Observable<Void> {
+        return Observable.create({ [weak self] observer in
+            
+            let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Close", style: .default, handler: { _ in
+                
+                observer.onCompleted()
+                
+                }
+            ))
+            
+            self?.present(alert, animated: true, completion: nil)
+            
+            // W momencie anulowania subskrypcji, alert zostanie porawnie zamknięty.
+            
+            return Disposables.create {
+                self?.dismiss(animated: true, completion: nil)
+            }
+        })
+    }
 }
 
 extension ViewController {
