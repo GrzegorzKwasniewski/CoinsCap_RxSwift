@@ -29,6 +29,24 @@ class ViewController: UITableViewController {
 
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        let coinsDetailsVC = storyboard!.instantiateViewController(
+            withIdentifier: "CoinsDetailsVC") as! CoinsDetailsVC
+        
+        coinsDetailsVC.selectedCoin
+            .subscribe(onNext: { (selecteCoin) in
+                print("completed photo selection")
+            }, onError: { (error) in
+                print("Error was emited.")
+            }, onCompleted: {
+                print("onCompleted event was emited")
+            }) {
+                print("onDisposed event was emited")
+        }
+    }
+    
     func setupRefreshControll() {
         
         self.refreshControl = UIRefreshControl()
