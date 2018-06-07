@@ -103,7 +103,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="removeCoinFromList:" destination="7Tj-Cj-ccg" eventType="touchUpInside" id="Sev-5X-19G"/>
+                                    <action selector="setCoinOfTheDay:" destination="7Tj-Cj-ccg" eventType="touchUpInside" id="5pF-8I-QPs"/>
                                 </connections>
                             </button>
                         </subviews>
