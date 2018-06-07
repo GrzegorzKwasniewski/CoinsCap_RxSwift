@@ -130,7 +130,6 @@
 				B2D3AC5820ADE6FC0082C04E /* Frameworks */,
 				B2D3AC5920ADE6FC0082C04E /* Resources */,
 				DE67CE3C2C232EAA26113958 /* [CP] Embed Pods Frameworks */,
-				E43D0493E5B23944C968D41A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -226,21 +225,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoinsCap_RxSwift/Pods-CoinsCap_RxSwift-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E43D0493E5B23944C968D41A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoinsCap_RxSwift/Pods-CoinsCap_RxSwift-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

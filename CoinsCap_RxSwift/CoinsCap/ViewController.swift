@@ -31,6 +31,11 @@ class ViewController: UITableViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("Resource count \(RxSwift.Resources.total)")
+    }
+    
     func setupRefreshControll() {
         
         self.refreshControl = UIRefreshControl()
