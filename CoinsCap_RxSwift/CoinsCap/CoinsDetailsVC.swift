@@ -12,6 +12,8 @@ class CoinsDetailsVC: UIViewController {
     @IBOutlet weak var coinName: UILabel!
     @IBOutlet weak var coinValue: UILabel!
     
+    let disposeBag = DisposeBag()
+    
     private let coinOfTheDay = PublishSubject<Coin>()
     
     var selectedCoin: Observable<Coin> {

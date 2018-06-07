@@ -12,6 +12,8 @@ import SwiftyJSON
 
 class ViewController: UITableViewController {
     
+    @IBOutlet weak var coinLabel: UILabel!
+    
     fileprivate let coins = Variable<[Coin]>([])
     fileprivate let bag = DisposeBag()
     
@@ -27,24 +29,6 @@ class ViewController: UITableViewController {
         
         getCurrentCoinsCap(fromURL: "https://api.coinmarketcap.com/v1/ticker/")
 
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
-        let coinsDetailsVC = storyboard!.instantiateViewController(
-            withIdentifier: "CoinsDetailsVC") as! CoinsDetailsVC
-        
-        coinsDetailsVC.selectedCoin
-            .subscribe(onNext: { (selecteCoin) in
-                print("completed photo selection")
-            }, onError: { (error) in
-                print("Error was emited.")
-            }, onCompleted: {
-                print("onCompleted event was emited")
-            }) {
-                print("onDisposed event was emited")
-        }
     }
     
     func setupRefreshControll() {
@@ -203,6 +187,18 @@ extension ViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let coinsDetailsVC = storyboard.instantiateViewController(withIdentifier: "CoinsDetailsVC") as! CoinsDetailsVC
         coinsDetailsVC.singleCoin = coin
+        
+        coinsDetailsVC.selectedCoin
+            .subscribe(onNext: { [weak self] (selecteCoin) in
+                self?.coinLabel.text = selecteCoin.coinName
+                }, onError: { (error) in
+                    print("Error was emited.")
+            }, onCompleted: {
+                print("onCompleted event was emited")
+            }) {
+                print("onDisposed event was emited")
+            }.disposed(by: coinsDetailsVC.disposeBag)
+        
         navigationController?.pushViewController(coinsDetailsVC, animated: true)
         
     }

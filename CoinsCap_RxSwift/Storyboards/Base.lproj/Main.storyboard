@@ -31,12 +31,21 @@
                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-----" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNR-7c-stc">
+                                    <rect key="frame" x="332" y="14" width="35" height="31"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
+                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.60784313729999995" green="0.098039215690000001" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="B4R-d7-VnO" firstAttribute="leading" secondItem="XLX-Kr-DHw" secondAttribute="leading" constant="8" id="8wR-mX-Dof"/>
                                 <constraint firstAttribute="bottom" secondItem="B4R-d7-VnO" secondAttribute="bottom" constant="16" id="Ck4-MI-7CY"/>
+                                <constraint firstAttribute="trailing" secondItem="wNR-7c-stc" secondAttribute="trailing" constant="8" id="EX2-qV-OXa"/>
                                 <constraint firstItem="B4R-d7-VnO" firstAttribute="top" secondItem="XLX-Kr-DHw" secondAttribute="top" constant="15" id="IMw-A6-8Ww"/>
+                                <constraint firstAttribute="bottom" secondItem="wNR-7c-stc" secondAttribute="bottom" constant="14" id="Scs-sS-QBK"/>
+                                <constraint firstItem="wNR-7c-stc" firstAttribute="top" secondItem="XLX-Kr-DHw" secondAttribute="top" constant="14" id="bJe-Xp-8jW"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -71,6 +80,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="O8n-Kh-tku"/>
+                    <connections>
+                        <outlet property="coinLabel" destination="wNR-7c-stc" id="rPr-Ge-Cxn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bg3-Cr-FYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
