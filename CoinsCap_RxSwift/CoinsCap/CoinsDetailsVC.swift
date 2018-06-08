@@ -2,6 +2,8 @@
 //  CoinsDetailsVC.swift
 //  CoinsCap_RxSwift
 //
+//  Created by Grzegorz Kwasniewski on 17/05/2018.
+//
 
 import UIKit
 import RxSwift

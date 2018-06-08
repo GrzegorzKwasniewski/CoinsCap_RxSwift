@@ -116,7 +116,7 @@ class ViewController: UITableViewController {
                 return 400..<600 ~= response.statusCode
             }.flatMap { response, _ -> Observable<Int> in
                 
-                print("main: \(Thread.isMainThread)")
+                print("Are we on main thread? : \(Thread.isMainThread)")
 
                 return Observable.just(response.statusCode)
             }.subscribe(onNext: { [weak self] statusCode in
