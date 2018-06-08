@@ -11,7 +11,7 @@
 		B267B58F20AF065E0046F015 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267B58E20AF065E0046F015 /* Coin.swift */; };
 		B28F5EC120BC4A7C00F266A2 /* CoinsDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F5EC020BC4A7C00F266A2 /* CoinsDetailsVC.swift */; };
 		B2D3AC5F20ADE6FC0082C04E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D3AC5E20ADE6FC0082C04E /* AppDelegate.swift */; };
-		B2D3AC6120ADE6FC0082C04E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D3AC6020ADE6FC0082C04E /* ViewController.swift */; };
+		B2D3AC6120ADE6FC0082C04E /* MainViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D3AC6020ADE6FC0082C04E /* MainViewVC.swift */; };
 		B2D3AC6420ADE6FC0082C04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2D3AC6220ADE6FC0082C04E /* Main.storyboard */; };
 		B2D3AC6620ADE6FE0082C04E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2D3AC6520ADE6FE0082C04E /* Assets.xcassets */; };
 		B2D3AC6920ADE6FE0082C04E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2D3AC6720ADE6FE0082C04E /* LaunchScreen.storyboard */; };
@@ -25,7 +25,7 @@
 		B28F5EC020BC4A7C00F266A2 /* CoinsDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsDetailsVC.swift; sourceTree = "<group>"; };
 		B2D3AC5B20ADE6FC0082C04E /* CoinsCap_RxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinsCap_RxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2D3AC5E20ADE6FC0082C04E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B2D3AC6020ADE6FC0082C04E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B2D3AC6020ADE6FC0082C04E /* MainViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewVC.swift; sourceTree = "<group>"; };
 		B2D3AC6320ADE6FC0082C04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B2D3AC6520ADE6FE0082C04E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2D3AC6820ADE6FE0082C04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 		B2D3AC7020ADEB2D0082C04E /* CoinsCap */ = {
 			isa = PBXGroup;
 			children = (
-				B2D3AC6020ADE6FC0082C04E /* ViewController.swift */,
+				B2D3AC6020ADE6FC0082C04E /* MainViewVC.swift */,
 				B267B58E20AF065E0046F015 /* Coin.swift */,
 				B28F5EC020BC4A7C00F266A2 /* CoinsDetailsVC.swift */,
 			);
@@ -235,7 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B267B58F20AF065E0046F015 /* Coin.swift in Sources */,
-				B2D3AC6120ADE6FC0082C04E /* ViewController.swift in Sources */,
+				B2D3AC6120ADE6FC0082C04E /* MainViewVC.swift in Sources */,
 				B28F5EC120BC4A7C00F266A2 /* CoinsDetailsVC.swift in Sources */,
 				B2D3AC5F20ADE6FC0082C04E /* AppDelegate.swift in Sources */,
 			);

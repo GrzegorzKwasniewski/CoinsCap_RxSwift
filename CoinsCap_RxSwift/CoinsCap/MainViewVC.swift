@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import SwiftyJSON
 
-class ViewController: UITableViewController {
+class MainViewVC: UITableViewController {
     
     @IBOutlet weak var coinLabel: UILabel!
     
@@ -172,7 +172,7 @@ class ViewController: UITableViewController {
     }
 }
 
-extension ViewController {
+extension MainViewVC {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return coins.value.count
