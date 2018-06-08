@@ -50,11 +50,9 @@ class ViewController: UITableViewController {
     
     func getCurrentCoinsCap(fromURL url: String) {
         
-        // 1 krok - czy "from" jest tu potrzebne - sprawdzić inne możlwiości
-        // Jeżeli to jest kolekcja, to czy w przypadku większej ilości elementów
-        // dla każdego zostanie wykonany ten sam zestaw operacji?
+        // 1 krok
         
-          let response = Observable.from([url])
+          let response = Observable.just(url)
             .map { url -> URL in // 2 krok
                 return URL(string: url)!
             }.map { url -> URLRequest in // 3 krok
@@ -63,7 +61,7 @@ class ViewController: UITableViewController {
                 
                 print("main: \(Thread.isMainThread)")
                 
-                return URLSession.shared.rx.response(request: request) // wykonanie tej funkcji oznacza odebranie danych z serwera
+                return URLSession.shared.rx.response(request: request)
         }.share(replay: 1)
         
         // operacja wykonywana już po odebraniu danych z serwera
@@ -78,7 +76,7 @@ class ViewController: UITableViewController {
                 
                 print("main: \(Thread.isMainThread)")
 
-                return 200..<300 ~= response.statusCode // operattora używamy z "rangem" - jak range jest po lewej to sprawdzane jest, czy wartość po prawej w nim się znajduje
+                return 200..<300 ~= response.statusCode
             }.map { _, data -> JSON in
 
                 do {
