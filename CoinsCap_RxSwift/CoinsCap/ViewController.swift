@@ -118,7 +118,7 @@ class ViewController: UITableViewController {
 
                 return Observable.just(response.statusCode)
             }.subscribe(onNext: { [weak self] statusCode in
-                self?.showAlert("Something is wrong", description: "\(statusCode)")
+                self?.showMessage("Something is wrong", description: "\(statusCode)")
             })
             .disposed(by: disposeBag)
         
@@ -139,6 +139,14 @@ class ViewController: UITableViewController {
             guard let strongSelf = self else { return }
             strongSelf.getCurrentCoinsCap(fromURL: "https://api.coinmarketcap.com/v1/ticker/")
         }
+    }
+    
+    func showMessage(_ title: String, description: String) {
+        showAlert(title, description: description)
+            .subscribe(onCompleted: { [weak self] in
+                self?.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
     }
     
     func showAlert(_ title: String, description: String) -> Observable<Void> {
