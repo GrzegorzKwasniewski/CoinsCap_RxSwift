@@ -15,7 +15,7 @@ class ViewController: UITableViewController {
     @IBOutlet weak var coinLabel: UILabel!
     
     fileprivate let coins = Variable<[Coin]>([])
-    fileprivate let bag = DisposeBag()
+    fileprivate let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,7 +106,7 @@ class ViewController: UITableViewController {
             }.subscribe(onNext: { [weak self] coins in
                 self?.updateUIWithCoins(coinsCollection: coins)
             })
-            .disposed(by: bag)
+            .disposed(by: disposeBag)
     }
     
     func filterErrorResponse(_ response: Observable<(response: HTTPURLResponse, data: Data)>) {
@@ -122,7 +122,7 @@ class ViewController: UITableViewController {
             }.subscribe(onNext: { [weak self] statusCode in
                 self?.showAlert("Something is wrong", description: "\(statusCode)")
             })
-            .disposed(by: bag)
+            .disposed(by: disposeBag)
         
     }
     

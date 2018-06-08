@@ -98,19 +98,31 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coin name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bq-2i-bzZ">
                                 <rect key="frame" x="131" y="60" width="112" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="Uef-d7-cWA"/>
+                                    <constraint firstAttribute="width" constant="112" id="msn-od-fEO"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="coin value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANV-CA-t5z">
                                 <rect key="frame" x="149" y="137" width="77" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" id="7gZ-TE-xpn"/>
+                                    <constraint firstAttribute="height" constant="21" id="hj3-gY-Fkf"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZU-i6-hWe">
-                                <rect key="frame" x="110" y="316" width="154" height="34"/>
-                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="102" y="316" width="170" height="34"/>
+                                <color key="backgroundColor" red="0.60784313729999995" green="0.098039215690000001" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="OVT-ld-WdE"/>
+                                    <constraint firstAttribute="height" constant="34" id="YEa-zi-Gzr"/>
+                                </constraints>
                                 <state key="normal" title="Set Coin of the day">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -122,13 +134,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kZU-i6-hWe" firstAttribute="centerX" secondItem="G12-9h-DaA" secondAttribute="centerX" id="0Xn-LR-xsM"/>
-                            <constraint firstItem="alI-vC-bGR" firstAttribute="trailing" secondItem="6bq-2i-bzZ" secondAttribute="trailing" constant="132" id="5eC-LA-sn3"/>
-                            <constraint firstItem="6bq-2i-bzZ" firstAttribute="leading" secondItem="alI-vC-bGR" secondAttribute="leading" constant="131" id="Ca2-t8-JN7"/>
+                            <constraint firstItem="ANV-CA-t5z" firstAttribute="centerX" secondItem="G12-9h-DaA" secondAttribute="centerX" id="EME-B9-nA4"/>
                             <constraint firstItem="6bq-2i-bzZ" firstAttribute="top" secondItem="alI-vC-bGR" secondAttribute="top" constant="40" id="HmH-A4-p5b"/>
+                            <constraint firstItem="6bq-2i-bzZ" firstAttribute="centerX" secondItem="G12-9h-DaA" secondAttribute="centerX" id="QV7-qM-arw"/>
                             <constraint firstItem="kZU-i6-hWe" firstAttribute="centerY" secondItem="G12-9h-DaA" secondAttribute="centerY" id="Xib-H5-iZK"/>
-                            <constraint firstItem="alI-vC-bGR" firstAttribute="trailing" secondItem="ANV-CA-t5z" secondAttribute="trailing" constant="149" id="YNe-f6-Bhf"/>
                             <constraint firstItem="ANV-CA-t5z" firstAttribute="top" secondItem="6bq-2i-bzZ" secondAttribute="bottom" constant="48" id="e5I-Or-tYm"/>
-                            <constraint firstItem="ANV-CA-t5z" firstAttribute="leading" secondItem="alI-vC-bGR" secondAttribute="leading" constant="149" id="qgX-eS-HUS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="alI-vC-bGR"/>
                     </view>
