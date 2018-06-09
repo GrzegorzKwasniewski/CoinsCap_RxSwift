@@ -50,14 +50,12 @@ class MainViewVC: UITableViewController {
     
     func getCurrentCoinsCap(fromURL url: String) {
         
-        // 1 krok
-        
           let response = Observable.just(url)
-            .map { url -> URL in // 2 krok
+            .map { url -> URL in
                 return URL(string: url)!
-            }.map { url -> URLRequest in // 3 krok
+            }.map { url -> URLRequest in
                 return URLRequest(url: url)
-            }.flatMap { request -> Observable<(response: HTTPURLResponse, data: Data)> in // 4 krok
+            }.flatMap { request -> Observable<(response: HTTPURLResponse, data: Data)> in
                 
                 print("main: \(Thread.isMainThread)")
                 
