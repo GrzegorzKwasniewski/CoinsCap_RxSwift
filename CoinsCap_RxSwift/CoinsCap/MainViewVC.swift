@@ -57,12 +57,12 @@ class MainViewVC: UITableViewController {
                 return URLRequest(url: url)
             }.flatMap { request -> Observable<(response: HTTPURLResponse, data: Data)> in
                 
-                print("main: \(Thread.isMainThread)")
+                print("Are we on main thread: \(Thread.isMainThread)")
                 
                 return URLSession.shared.rx.response(request: request)
         }.share(replay: 1)
         
-        // operacja wykonywana już po odebraniu danych z serwera
+        // W tym momemncie kod pobierania z serwera nie jest jeszcze wykonywany. Będzie dopiero w momencie zapisania się jakiegoś obiektu.
         filterSuccesResponse(response)
         
         filterErrorResponse(response)
