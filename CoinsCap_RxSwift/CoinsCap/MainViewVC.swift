@@ -108,7 +108,7 @@ class MainViewVC: UITableViewController {
     func filterErrorResponse(_ response: Observable<(response: HTTPURLResponse, data: Data)>) {
         
         response
-            .filter {response, _ in
+            .filter { response, _ in
                 return 400..<600 ~= response.statusCode
             }.flatMap { response, _ -> Observable<Int> in
                 
@@ -117,8 +117,7 @@ class MainViewVC: UITableViewController {
                 return Observable.just(response.statusCode)
             }.subscribe(onNext: { [weak self] statusCode in
                 self?.showMessage("Something is wrong", description: "\(statusCode)")
-            })
-            .disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
         
     }
     
