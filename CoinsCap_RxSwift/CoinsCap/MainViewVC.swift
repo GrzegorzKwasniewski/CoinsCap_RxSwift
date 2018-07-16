@@ -139,33 +139,14 @@ class MainViewVC: UITableViewController {
     }
     
     func showMessage(_ title: String, description: String) {
-        showAlert(title, description: description)
-            .subscribe(onCompleted: { [weak self] in
-                self?.dismiss(animated: true, completion: nil)
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    func showAlert(_ title: String, description: String) -> Observable<Void> {
-        return Observable.create({ [weak self] observer in
+        let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Close", style: .default, handler: { _ in
             
-            let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Close", style: .default, handler: { _ in
-                
-                observer.onCompleted()
-                
-                }
-            ))
-            
-            self?.present(alert, animated: true, completion: nil)
-            
-            // W momencie anulowania subskrypcji, alert zostanie porawnie zamknięty.
-            
-            return Disposables.create {
-                self?.dismiss(animated: true, completion: nil)
-            }
-        })
+            self.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -197,8 +178,12 @@ extension MainViewVC {
         coinsDetailsVC.singleCoin = coin
         
         coinsDetailsVC.selectedCoin
-            .subscribe(onNext: { [weak self] (selecteCoin) in
-                self?.coinLabel.text = selecteCoin.coinName
+            .subscribe(onNext: { [weak self] (selectedCoin) in
+                
+                self?.coinLabel.text = selectedCoin.coinName
+                
+                self?.showMessage("Coin \(selectedCoin.coinName) was selected", description: "")
+                
                 }, onError: { (error) in
                     print("Error was emited.")
             }, onCompleted: {
@@ -206,6 +191,7 @@ extension MainViewVC {
             }) {
                 print("onDisposed event was emited")
             }.disposed(by: coinsDetailsVC.disposeBag)
+
         
         navigationController?.pushViewController(coinsDetailsVC, animated: true)
         

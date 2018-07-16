@@ -39,19 +39,5 @@ class CoinsDetailsVC: UIViewController {
     
     @IBAction func setCoinOfTheDay(_ sender: UIButton) {
         coinOfTheDay.onNext(singleCoin)
-        
-        showPopUp()
-    }
-    
-    func showPopUp() {
-        let alert = UIAlertController(title: "Coin was set", message: "", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Close", style: .default, handler: { _ in
-            
-            self.dismiss(animated: true, completion: nil)
-        }
-        ))
-        
-        self.present(alert, animated: true, completion: nil)
     }
 }
