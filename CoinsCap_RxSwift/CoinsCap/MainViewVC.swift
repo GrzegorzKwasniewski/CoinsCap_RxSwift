@@ -63,14 +63,16 @@ class MainViewVC: UITableViewController {
         }.share(replay: 1)
         
         // W tym momemncie kod pobierania z serwera nie jest jeszcze wykonywany. Będzie dopiero w momencie zapisania się jakiegoś obiektu.
-        filterSuccesResponse(response)
+        filterSuccessResponse(response)
         
         filterErrorResponse(response)
     }
     
-    func filterSuccesResponse(_ response: Observable<(response: HTTPURLResponse, data: Data)>) {
+    func filterSuccessResponse(_ response: Observable<(response: HTTPURLResponse, data: Data)>) {
+
         response
-            .filter { response, _ in
+                .observeOn(MainScheduler.instance)
+                .filter { response, _ in
                 
                 print("main: \(Thread.isMainThread)")
 
@@ -108,9 +110,12 @@ class MainViewVC: UITableViewController {
     func filterErrorResponse(_ response: Observable<(response: HTTPURLResponse, data: Data)>) {
         
         response
-            .filter { response, _ in
-                return 400..<600 ~= response.statusCode
-            }.flatMap { response, _ -> Observable<Int> in
+                .observeOn(MainScheduler.instance)
+                .filter { response, _ in
+
+                    return 400..<600 ~= response.statusCode
+
+                }.flatMap { response, _ -> Observable<Int> in
                 
                 print("Are we on main thread? : \(Thread.isMainThread)")
 
@@ -124,11 +129,10 @@ class MainViewVC: UITableViewController {
     func updateUIWithCoins(coinsCollection: [Coin]) {
 
         self.coins.value = coinsCollection
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-            self?.refreshControl?.endRefreshing()
-        }
+
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
+
     }
     
     @objc func refreshCoins() {
@@ -181,9 +185,7 @@ extension MainViewVC {
             .subscribe(onNext: { [weak self] (selectedCoin) in
                 
                 self?.coinLabel.text = selectedCoin.coinName
-                
-                self?.showMessage("Coin \(selectedCoin.coinName) was selected", description: "")
-                
+
                 }, onError: { (error) in
                     print("Error was emited.")
             }, onCompleted: {

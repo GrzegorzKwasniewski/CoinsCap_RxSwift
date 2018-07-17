@@ -39,5 +39,19 @@ class CoinsDetailsVC: UIViewController {
     
     @IBAction func setCoinOfTheDay(_ sender: UIButton) {
         coinOfTheDay.onNext(singleCoin)
+
+        self.showMessage("Coin \(singleCoin.coinName) was selected", description: "")
+
+    }
+
+    func showMessage(_ title: String, description: String) {
+        let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Close", style: .default, handler: { _ in
+
+            self.dismiss(animated: true, completion: nil)
+        }))
+
+        self.present(alert, animated: true, completion: nil)
     }
 }
