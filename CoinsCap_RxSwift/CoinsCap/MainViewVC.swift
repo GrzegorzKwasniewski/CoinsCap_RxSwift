@@ -14,7 +14,7 @@ class MainViewVC: UITableViewController {
     
     @IBOutlet weak var coinLabel: UILabel!
     
-    fileprivate let coins = Variable<[Coin]>([])
+    fileprivate var coins = [Coin]()
     fileprivate let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -128,7 +128,7 @@ class MainViewVC: UITableViewController {
     
     func updateUIWithCoins(coinsCollection: [Coin]) {
 
-        self.coins.value = coinsCollection
+        self.coins = coinsCollection
 
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
@@ -157,12 +157,12 @@ class MainViewVC: UITableViewController {
 extension MainViewVC {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coins.value.count
+        return coins.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let coin = coins.value[indexPath.row]
+        let coin = coins[indexPath.row]
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell") else {
             return UITableViewCell()
@@ -176,7 +176,7 @@ extension MainViewVC {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let coin = coins.value[indexPath.row]
+        let coin = coins[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let coinsDetailsVC = storyboard.instantiateViewController(withIdentifier: "CoinsDetailsVC") as! CoinsDetailsVC
         coinsDetailsVC.singleCoin = coin
