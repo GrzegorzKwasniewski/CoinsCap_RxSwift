@@ -16,7 +16,7 @@ class CoinsDetailsVC: UIViewController {
     
     let disposeBag = DisposeBag()
     
-    private let coinOfTheDay = PublishSubject<Coin>()
+    private let coinOfTheDay = Variable(Coin())
     
     var selectedCoin: Observable<Coin> {
         return coinOfTheDay.asObservable()
@@ -31,14 +31,8 @@ class CoinsDetailsVC: UIViewController {
         coinValue.text = singleCoin.coinPrice
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        coinOfTheDay.onCompleted()
-    }
-    
     @IBAction func setCoinOfTheDay(_ sender: UIButton) {
-        coinOfTheDay.onNext(singleCoin)
+        coinOfTheDay.value = singleCoin
 
         self.showMessage("Coin \(singleCoin.coinName) was selected", description: "")
 

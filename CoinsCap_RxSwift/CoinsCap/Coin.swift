@@ -13,6 +13,11 @@ struct Coin: Decodable {
     private(set) var coinName: String
     private(set) var coinPrice: String
     
+    init() {
+        coinName = ""
+        coinPrice = ""
+    }
+    
     init(coinData: JSON) {
         coinName = coinData.dictionary?["name"]?.string ?? "no data"
         coinPrice = coinData.dictionary?["price_usd"]?.string ?? "no data"
