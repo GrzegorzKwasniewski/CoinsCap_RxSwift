@@ -10,6 +10,7 @@
 		5A3E4A3C77046F2067764610 /* Pods_CoinsCap_RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E5C1AC9351E0F250700313D /* Pods_CoinsCap_RxSwift.framework */; };
 		B267B58F20AF065E0046F015 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B267B58E20AF065E0046F015 /* Coin.swift */; };
 		B28F5EC120BC4A7C00F266A2 /* CoinsDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F5EC020BC4A7C00F266A2 /* CoinsDetailsVC.swift */; };
+		B29CEE4B2309955B00455EA8 /* CoinsCap_RxSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29CEE4A2309955B00455EA8 /* CoinsCap_RxSwiftTests.swift */; };
 		B2D3AC5F20ADE6FC0082C04E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D3AC5E20ADE6FC0082C04E /* AppDelegate.swift */; };
 		B2D3AC6120ADE6FC0082C04E /* MainViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D3AC6020ADE6FC0082C04E /* MainViewVC.swift */; };
 		B2D3AC6420ADE6FC0082C04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2D3AC6220ADE6FC0082C04E /* Main.storyboard */; };
@@ -17,12 +18,25 @@
 		B2D3AC6920ADE6FE0082C04E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2D3AC6720ADE6FE0082C04E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B29CEE4D2309955B00455EA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2D3AC5320ADE6FC0082C04E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2D3AC5A20ADE6FC0082C04E;
+			remoteInfo = CoinsCap_RxSwift;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		4E5C1AC9351E0F250700313D /* Pods_CoinsCap_RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinsCap_RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A6CD56C4AE5F66DD598756 /* Pods-CoinsCap_RxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinsCap_RxSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoinsCap_RxSwift/Pods-CoinsCap_RxSwift.release.xcconfig"; sourceTree = "<group>"; };
 		9D3A71A45C00A930D0228224 /* Pods-CoinsCap_RxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinsCap_RxSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoinsCap_RxSwift/Pods-CoinsCap_RxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		B267B58E20AF065E0046F015 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		B28F5EC020BC4A7C00F266A2 /* CoinsDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsDetailsVC.swift; sourceTree = "<group>"; };
+		B29CEE482309955A00455EA8 /* CoinsCap_RxSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinsCap_RxSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B29CEE4A2309955B00455EA8 /* CoinsCap_RxSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsCap_RxSwiftTests.swift; sourceTree = "<group>"; };
+		B29CEE4C2309955B00455EA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2D3AC5B20ADE6FC0082C04E /* CoinsCap_RxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinsCap_RxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2D3AC5E20ADE6FC0082C04E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2D3AC6020ADE6FC0082C04E /* MainViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewVC.swift; sourceTree = "<group>"; };
@@ -33,6 +47,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B29CEE452309955A00455EA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2D3AC5820ADE6FC0082C04E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -53,10 +74,20 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B29CEE492309955B00455EA8 /* CoinsCap_RxSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				B29CEE4A2309955B00455EA8 /* CoinsCap_RxSwiftTests.swift */,
+				B29CEE4C2309955B00455EA8 /* Info.plist */,
+			);
+			path = CoinsCap_RxSwiftTests;
+			sourceTree = "<group>";
+		};
 		B2D3AC5220ADE6FC0082C04E = {
 			isa = PBXGroup;
 			children = (
 				B2D3AC5D20ADE6FC0082C04E /* CoinsCap_RxSwift */,
+				B29CEE492309955B00455EA8 /* CoinsCap_RxSwiftTests */,
 				B2D3AC5C20ADE6FC0082C04E /* Products */,
 				A1C0DF001A6417A4DE1EA804 /* Pods */,
 				B8D285EA1E3ED4604A6D703E /* Frameworks */,
@@ -67,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				B2D3AC5B20ADE6FC0082C04E /* CoinsCap_RxSwift.app */,
+				B29CEE482309955A00455EA8 /* CoinsCap_RxSwiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,6 +153,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B29CEE472309955A00455EA8 /* CoinsCap_RxSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B29CEE512309955B00455EA8 /* Build configuration list for PBXNativeTarget "CoinsCap_RxSwiftTests" */;
+			buildPhases = (
+				B29CEE442309955A00455EA8 /* Sources */,
+				B29CEE452309955A00455EA8 /* Frameworks */,
+				B29CEE462309955A00455EA8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B29CEE4E2309955B00455EA8 /* PBXTargetDependency */,
+			);
+			name = CoinsCap_RxSwiftTests;
+			productName = CoinsCap_RxSwiftTests;
+			productReference = B29CEE482309955A00455EA8 /* CoinsCap_RxSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B2D3AC5A20ADE6FC0082C04E /* CoinsCap_RxSwift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B2D3AC6D20ADE6FE0082C04E /* Build configuration list for PBXNativeTarget "CoinsCap_RxSwift" */;
@@ -146,10 +196,14 @@
 		B2D3AC5320ADE6FC0082C04E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Grzegorz Kwasniewski";
 				TargetAttributes = {
+					B29CEE472309955A00455EA8 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = B2D3AC5A20ADE6FC0082C04E;
+					};
 					B2D3AC5A20ADE6FC0082C04E = {
 						CreatedOnToolsVersion = 9.3;
 					};
@@ -169,11 +223,19 @@
 			projectRoot = "";
 			targets = (
 				B2D3AC5A20ADE6FC0082C04E /* CoinsCap_RxSwift */,
+				B29CEE472309955A00455EA8 /* CoinsCap_RxSwiftTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B29CEE462309955A00455EA8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2D3AC5920ADE6FC0082C04E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -230,6 +292,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B29CEE442309955A00455EA8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B29CEE4B2309955B00455EA8 /* CoinsCap_RxSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2D3AC5720ADE6FC0082C04E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,6 +312,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B29CEE4E2309955B00455EA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2D3AC5A20ADE6FC0082C04E /* CoinsCap_RxSwift */;
+			targetProxy = B29CEE4D2309955B00455EA8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B2D3AC6220ADE6FC0082C04E /* Main.storyboard */ = {
@@ -263,6 +341,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B29CEE4F2309955B00455EA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7K692Z62S3;
+				INFOPLIST_FILE = CoinsCap_RxSwiftTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.devmobile.CoinsCap-RxSwiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoinsCap_RxSwift.app/CoinsCap_RxSwift";
+			};
+			name = Debug;
+		};
+		B29CEE502309955B00455EA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7K692Z62S3;
+				INFOPLIST_FILE = CoinsCap_RxSwiftTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.devmobile.CoinsCap-RxSwiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoinsCap_RxSwift.app/CoinsCap_RxSwift";
+			};
+			name = Release;
+		};
 		B2D3AC6B20ADE6FE0082C04E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -418,6 +538,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B29CEE512309955B00455EA8 /* Build configuration list for PBXNativeTarget "CoinsCap_RxSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B29CEE4F2309955B00455EA8 /* Debug */,
+				B29CEE502309955B00455EA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B2D3AC5620ADE6FC0082C04E /* Build configuration list for PBXProject "CoinsCap_RxSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
